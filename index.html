@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Glossary - Simple explanations of AI concepts</title>
+  <meta name="description" content="A visual guide to AI terminology. Simple explanations of complex concepts for non-technical people.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>AI Glossary</h1>
+      <p class="subtitle">Simple explanations of AI concepts for everyone</p>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#token">Token</a></li>
+        <li><a href="#tokenization">Tokenization</a></li>
+        <li><a href="#embedding">Embedding</a></li>
+        <li><a href="#context-window">Context Window</a></li>
+        <li><a href="#latent-space">Latent Space</a></li>
+        <li><a href="#neural-network">Neural Network</a></li>
+        <li><a href="#parameter">Parameter</a></li>
+        <li><a href="#model">Model</a></li>
+        <li><a href="#transformer">Transformer</a></li>
+        <li><a href="#attention">Attention</a></li>
+        <li><a href="#pre-training">Pre-training</a></li>
+        <li><a href="#fine-tuning">Fine-tuning</a></li>
+        <li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+        <li><a href="#chain-of-thought">Chain of Thought</a></li>
+        <li><a href="#inference">Inference</a></li>
+        <li><a href="#rag">RAG</a></li>
+        <li><a href="#agent">Agent</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#llm">LLM</a></li>
+        <li><a href="#prompt">Prompt</a></li>
+        <li><a href="#hallucination">Hallucination</a></li>
+        <li><a href="#temperature">Temperature</a></li>
+        <li><a href="#few-shot-learning">Few-shot Learning</a></li>
+        <li><a href="#zero-shot">Zero-shot</a></li>
+        <li><a href="#multimodal">Multimodal</a></li>
+        <li><a href="#diffusion">Diffusion</a></li>
+        <li><a href="#vector-database">Vector Database</a></li>
+        <li><a href="#semantic-search">Semantic Search</a></li>
+        <li><a href="#gpu">GPU</a></li>
+        <li><a href="#quantization">Quantization</a></li>
+      </ul>
+    </nav>
+
+    <main class="glossary">
+      <!-- Token -->
+      <article class="term" id="token">
+        <h2>Token</h2>
+        <p class="definition">The smallest unit of text a model processes. It can be a word, part of a word, or even a symbol.</p>
+        <div class="visual visual-tokens">
+          <div class="token-example">
+            <span class="token" data-id="1847">The</span>
+            <span class="token" data-id="8392">dragon</span>
+            <span class="token" data-id="2941">rests</span>
+            <span class="token" data-id="4820">in</span>
+            <span class="token" data-id="6103">ag</span>
+            <span class="token" data-id="9271">ony</span>
+            <span class="token" data-id="1023">.</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Text is split into small units the model can read. Each token is linked to a number, like its own ID. Notice how "agony" becomes two tokens: "ag" and "ony".</p>
+      </article>
+
+      <!-- Tokenization -->
+      <article class="term" id="tokenization">
+        <h2>Tokenization</h2>
+        <p class="definition">The process of breaking text into small units (tokens) a model can understand. Each token can be a word, subword, or character.</p>
+        <div class="visual visual-process">
+          <div class="process-step">
+            <div class="process-input">"Hello, how are you?"</div>
+            <div class="process-arrow">→</div>
+            <div class="process-output">
+              <span class="mini-token">Hello</span>
+              <span class="mini-token">,</span>
+              <span class="mini-token">how</span>
+              <span class="mini-token">are</span>
+              <span class="mini-token">you</span>
+              <span class="mini-token">?</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> When you send text to a model, this is the very first step before anything else happens.</p>
+      </article>
+
+      <!-- Embedding -->
+      <article class="term" id="embedding">
+        <h2>Embedding</h2>
+        <p class="definition">The model turns each token into numbers that represent its meaning. Tokens with similar meanings have vectors (points positioned in space) that are close together.</p>
+        <div class="visual visual-embedding">
+          <div class="embedding-space">
+            <span class="word" style="top: 20%; left: 15%;">cat</span>
+            <span class="word" style="top: 25%; left: 25%;">dog</span>
+            <span class="word" style="top: 18%; left: 35%;">pet</span>
+            <span class="word" style="top: 60%; left: 70%;">car</span>
+            <span class="word" style="top: 65%; left: 80%;">truck</span>
+            <span class="word" style="top: 55%; left: 60%;">vehicle</span>
+            <span class="word" style="top: 75%; left: 20%;">happy</span>
+            <span class="word" style="top: 80%; left: 35%;">joyful</span>
+            <span class="word" style="top: 40%; left: 50%;">king</span>
+            <span class="word" style="top: 45%; left: 42%;">queen</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Turns tokens into points in space, grouped by meaning. "Cat" and "dog" end up close together; "car" and "truck" form another cluster.</p>
+      </article>
+
+      <!-- Context Window -->
+      <article class="term" id="context-window">
+        <h2>Context Window</h2>
+        <p class="definition">The limit of how much text a model can consider at once. It reads and reasons only within this window, measured in tokens.</p>
+        <div class="visual visual-window">
+          <div class="window-demo">
+            <div class="window-content">
+              <span class="in-window">The quick brown fox jumps over the lazy dog. This sentence contains</span>
+              <span class="out-window">all the letters of the alphabet. It's often used for typing practice...</span>
+            </div>
+            <div class="window-indicator">
+              <span class="window-label">Context Window (visible to model)</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> The model can process a limited number of tokens at once. Modern models range from 4K to 200K+ tokens.</p>
+      </article>
+
+      <!-- Latent Space -->
+      <article class="term" id="latent-space">
+        <h2>Latent Space</h2>
+        <p class="definition">An internal map where the model organizes what it has learned. Each point represents a concept, and similar ideas group close together.</p>
+        <div class="visual visual-latent">
+          <div class="latent-space">
+            <div class="dot-cluster cluster-1">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span>
+              <span class="cluster-label">colors</span>
+            </div>
+            <div class="dot-cluster cluster-2">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span>
+              <span class="cluster-label">emotions</span>
+            </div>
+            <div class="dot-cluster cluster-3">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="cluster-label">animals</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Each dot is an embedding, placed near others with similar meaning. It's how the model organizes concepts to relate them efficiently.</p>
+      </article>
+
+      <!-- Neural Network -->
+      <article class="term" id="neural-network">
+        <h2>Neural Network</h2>
+        <p class="definition">A network of connected layers that learn from examples. Each layer refines the data, and together they learn patterns used to recognize images, understand language, or process sounds.</p>
+        <div class="visual visual-network">
+          <div class="network-diagram">
+            <div class="layer input-layer">
+              <span class="node"></span>
+              <span class="node"></span>
+              <span class="node"></span>
+            </div>
+            <div class="connections"></div>
+            <div class="layer hidden-layer">
+              <span class="node"></span>
+              <span class="node"></span>
+              <span class="node"></span>
+              <span class="node"></span>
+            </div>
+            <div class="connections"></div>
+            <div class="layer output-layer">
+              <span class="node"></span>
+              <span class="node"></span>
+            </div>
+          </div>
+          <div class="network-labels">
+            <span>Input</span>
+            <span>Hidden</span>
+            <span>Output</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Each layer transforms information a bit, finding patterns. By the end, the network can turn a question into the right answer.</p>
+      </article>
+
+      <!-- Parameter -->
+      <article class="term" id="parameter">
+        <h2>Parameter</h2>
+        <p class="definition">Values the model learns during training that determine how strongly different parts of the network connect and respond. Together, they define how the model understands and generates information.</p>
+        <div class="visual visual-params">
+          <div class="param-grid">
+            <span class="param">0.42</span>
+            <span class="param">-0.17</span>
+            <span class="param">0.89</span>
+            <span class="param">0.03</span>
+            <span class="param">-0.56</span>
+            <span class="param">0.71</span>
+            <span class="param">-0.28</span>
+            <span class="param">0.94</span>
+            <span class="param">0.15</span>
+            <span class="param">-0.63</span>
+            <span class="param">0.37</span>
+            <span class="param">-0.82</span>
+          </div>
+          <div class="param-scale">
+            <span>7B</span>
+            <span>70B</span>
+            <span>405B</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> More parameters typically mean a smarter, more flexible model—but not always. Quality of training matters too.</p>
+      </article>
+
+      <!-- Model -->
+      <article class="term" id="model">
+        <h2>Model</h2>
+        <p class="definition">A system that has learned from data and can now use that knowledge to predict, generate, or understand new information.</p>
+        <div class="visual visual-model">
+          <div class="model-examples">
+            <div class="model-example">
+              <span class="input">Why is the sky blue?</span>
+              <span class="output">Light scatters...</span>
+            </div>
+            <div class="model-example">
+              <span class="input">Translate: Hello</span>
+              <span class="output">Bonjour</span>
+            </div>
+            <div class="model-example">
+              <span class="input">Summarize this...</span>
+              <span class="output">Key points are...</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> A neural network trained on tons of examples so it can predict or generate new things.</p>
+      </article>
+
+      <!-- Transformer -->
+      <article class="term" id="transformer">
+        <h2>Transformer</h2>
+        <p class="definition">A type of neural network that looks at every word in a sequence at once. Unlike earlier models that read step by step, it learns how words relate across the whole text.</p>
+        <div class="visual visual-transformer">
+          <div class="sentence-flow">
+            <span class="word-box">Why</span>
+            <span class="word-box">does</span>
+            <span class="word-box">the</span>
+            <span class="word-box highlight">sky</span>
+            <span class="word-box">turn</span>
+            <span class="word-box highlight">orange</span>
+          </div>
+          <svg class="connection-lines" viewBox="0 0 300 40">
+            <path d="M75 5 Q150 35 225 5" stroke="currentColor" fill="none" stroke-width="1.5" opacity="0.5"/>
+          </svg>
+        </div>
+        <p class="context"><strong>In context:</strong> Understands relationships between words across a whole sentence. The model sees that "sky" and "orange" are connected.</p>
+      </article>
+
+      <!-- Attention -->
+      <article class="term" id="attention">
+        <h2>Attention</h2>
+        <p class="definition">A mechanism inside Transformers that decides which words to focus on when processing a sentence. Each word looks at others and assigns more weight to the ones that matter most.</p>
+        <div class="visual visual-attention">
+          <div class="attention-demo">
+            <div class="attention-word focus">The</div>
+            <div class="attention-word">cat</div>
+            <div class="attention-word highlight">sat</div>
+            <div class="attention-word">on</div>
+            <div class="attention-word">the</div>
+            <div class="attention-word highlight">mat</div>
+          </div>
+          <div class="attention-weights">
+            <span style="opacity: 0.3">●</span>
+            <span style="opacity: 0.5">●</span>
+            <span style="opacity: 1.0">●</span>
+            <span style="opacity: 0.4">●</span>
+            <span style="opacity: 0.3">●</span>
+            <span style="opacity: 0.9">●</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Helps the model decide which words to focus on for meaning. When processing "The", it pays most attention to "sat" and "mat".</p>
+      </article>
+
+      <!-- Pre-training -->
+      <article class="term" id="pre-training">
+        <h2>Pre-training</h2>
+        <p class="definition">The first learning stage where a model trains on vast text data to learn patterns, context, and general knowledge.</p>
+        <div class="visual visual-pretrain">
+          <div class="data-cloud">
+            <span>books</span>
+            <span>websites</span>
+            <span>articles</span>
+            <span>code</span>
+            <span>papers</span>
+            <span>forums</span>
+          </div>
+          <div class="arrow-down">↓</div>
+          <div class="model-box">Base Model</div>
+        </div>
+        <p class="context"><strong>In context:</strong> Like going to school before specializing. The model learns language fundamentals first.</p>
+      </article>
+
+      <!-- Fine-tuning -->
+      <article class="term" id="fine-tuning">
+        <h2>Fine-tuning</h2>
+        <p class="definition">Training a pre-trained model on new, specific data so it adapts to a particular task or tone. It keeps what it already knows but learns to apply it in a focused way.</p>
+        <div class="visual visual-finetune">
+          <div class="finetune-flow">
+            <div class="model-box">Base Model</div>
+            <div class="plus">+</div>
+            <div class="data-box">Medical Data</div>
+            <div class="arrow-right">→</div>
+            <div class="model-box specialized">Medical Assistant</div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Teaches the model a new skill without forgetting what it already knows.</p>
+      </article>
+
+      <!-- Reinforcement Learning -->
+      <article class="term" id="reinforcement-learning">
+        <h2>Reinforcement Learning</h2>
+        <p class="definition">A training method where the model improves through feedback. It tries actions, receives rewards or penalties, and learns to make better decisions over time.</p>
+        <div class="visual visual-rl">
+          <div class="rl-cycle">
+            <div class="rl-step">Model</div>
+            <div class="rl-arrow">→</div>
+            <div class="rl-step">Response</div>
+            <div class="rl-arrow">→</div>
+            <div class="rl-step feedback">Feedback</div>
+            <div class="rl-arrow curved">↩</div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Improves the model through trial, error, and feedback until it gets better results. RLHF (from human feedback) is commonly used.</p>
+      </article>
+
+      <!-- Chain of Thought -->
+      <article class="term" id="chain-of-thought">
+        <h2>Chain of Thought</h2>
+        <p class="definition">Step-by-step reasoning the model writes to reach an answer. It helps break complex problems into smaller, more manageable steps.</p>
+        <div class="visual visual-cot">
+          <div class="cot-steps">
+            <div class="cot-step">
+              <span class="step-num">1</span>
+              <span class="step-text">Read the problem</span>
+            </div>
+            <div class="cot-step">
+              <span class="step-num">2</span>
+              <span class="step-text">Identify what we know</span>
+            </div>
+            <div class="cot-step">
+              <span class="step-num">3</span>
+              <span class="step-text">Apply the formula</span>
+            </div>
+            <div class="cot-step">
+              <span class="step-num">4</span>
+              <span class="step-text">Calculate result</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Shows how the model thinks through a problem before answering. Often improves accuracy on complex tasks.</p>
+      </article>
+
+      <!-- Inference -->
+      <article class="term" id="inference">
+        <h2>Inference</h2>
+        <p class="definition">The stage where a trained model uses what it has learned to generate a response. It predicts the next token step by step until the answer is complete.</p>
+        <div class="visual visual-inference">
+          <div class="inference-demo">
+            <span class="typed">The capital of France is</span>
+            <span class="generating">Paris</span>
+            <span class="cursor">|</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> This is what happens behind the scenes when you use an AI product. Training teaches; inference applies.</p>
+      </article>
+
+      <!-- RAG -->
+      <article class="term" id="rag">
+        <h2>RAG</h2>
+        <p class="definition">Retrieval-Augmented Generation. A method that lets a model look up information before answering. It retrieves relevant data from external sources, then uses that context to write a better answer.</p>
+        <div class="visual visual-rag">
+          <div class="rag-flow">
+            <div class="rag-step">Query</div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-step docs">
+              <span>📄</span>
+              <span>📄</span>
+              <span>📄</span>
+            </div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-step">Model</div>
+            <div class="rag-arrow">→</div>
+            <div class="rag-step">Answer</div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> When AI searches the web or your documents before answering, that's RAG in action.</p>
+      </article>
+
+      <!-- Agent -->
+      <article class="term" id="agent">
+        <h2>Agent</h2>
+        <p class="definition">An autonomous system that uses tools and feedback loops to accomplish tasks. It can plan, execute actions, observe results, and adjust its approach.</p>
+        <div class="visual visual-agent">
+          <div class="agent-diagram">
+            <div class="agent-core">
+              <span>🤖</span>
+              <span class="label">Agent</span>
+            </div>
+            <div class="agent-tools">
+              <span class="tool">Search</span>
+              <span class="tool">Code</span>
+              <span class="tool">Browse</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Unlike a simple chatbot, an agent can take actions—like searching, writing code, or booking appointments.</p>
+      </article>
+
+      <!-- Workflow -->
+      <article class="term" id="workflow">
+        <h2>Workflow</h2>
+        <p class="definition">A predefined sequence of steps where each stage uses the previous result to move the task forward toward a final outcome.</p>
+        <div class="visual visual-workflow">
+          <div class="workflow-steps">
+            <div class="wf-step">Collect</div>
+            <div class="wf-connector">→</div>
+            <div class="wf-step">Process</div>
+            <div class="wf-connector">→</div>
+            <div class="wf-step">Generate</div>
+            <div class="wf-connector">→</div>
+            <div class="wf-step">Deliver</div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Connects steps into a clear, predictable path. Unlike agents, workflows follow a fixed sequence.</p>
+      </article>
+
+      <!-- LLM -->
+      <article class="term" id="llm">
+        <h2>LLM</h2>
+        <p class="definition">Large Language Model. A very large neural network trained on vast text data to understand, predict, and generate human language.</p>
+        <div class="visual visual-llm">
+          <div class="llm-languages">
+            <span>Hello</span>
+            <span>Bonjour</span>
+            <span>Hola</span>
+            <span>你好</span>
+            <span>مرحبا</span>
+            <span>こんにちは</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> ChatGPT, Claude, and Llama are all LLMs. They power most AI chat applications today.</p>
+      </article>
+
+      <!-- NEW TERMS START HERE -->
+
+      <!-- Prompt -->
+      <article class="term" id="prompt">
+        <h2>Prompt</h2>
+        <p class="definition">The text input you give to an AI model to tell it what you want. It's your question, instruction, or the context that guides the model's response.</p>
+        <div class="visual visual-prompt">
+          <div class="prompt-example">
+            <div class="prompt-box">
+              <span class="prompt-label">Prompt</span>
+              <span class="prompt-text">"Explain quantum computing like I'm 5"</span>
+            </div>
+            <div class="arrow-down">↓</div>
+            <div class="response-box">
+              <span class="response-text">Imagine you have a magic coin...</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> The better your prompt, the better the response. Prompt engineering is the art of crafting effective instructions.</p>
+      </article>
+
+      <!-- Hallucination -->
+      <article class="term" id="hallucination">
+        <h2>Hallucination</h2>
+        <p class="definition">When an AI model generates information that sounds confident but is actually false or made up. The model doesn't "know" it's wrong.</p>
+        <div class="visual visual-hallucination">
+          <div class="hallucination-example">
+            <div class="question">Who wrote "The Azure Gardens"?</div>
+            <div class="wrong-answer">
+              <span class="x-mark">✗</span>
+              <span>"The Azure Gardens" was written by Margaret Chen in 1987...</span>
+            </div>
+            <div class="reality">(This book doesn't exist)</div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Models predict likely text, not truth. Always verify important facts, especially for names, dates, and citations.</p>
+      </article>
+
+      <!-- Temperature -->
+      <article class="term" id="temperature">
+        <h2>Temperature</h2>
+        <p class="definition">A setting that controls how random or creative the model's outputs are. Low temperature = more focused and predictable. High temperature = more varied and creative.</p>
+        <div class="visual visual-temperature">
+          <div class="temp-scale">
+            <div class="temp-low">
+              <span class="temp-value">0.0</span>
+              <span class="temp-label">Focused</span>
+              <span class="temp-example">"The sky is blue."</span>
+            </div>
+            <div class="temp-mid">
+              <span class="temp-value">0.7</span>
+              <span class="temp-label">Balanced</span>
+            </div>
+            <div class="temp-high">
+              <span class="temp-value">1.0+</span>
+              <span class="temp-label">Creative</span>
+              <span class="temp-example">"The sky dances in azure whispers..."</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Use low temperature for factual tasks, higher for creative writing or brainstorming.</p>
+      </article>
+
+      <!-- Few-shot Learning -->
+      <article class="term" id="few-shot-learning">
+        <h2>Few-shot Learning</h2>
+        <p class="definition">Teaching a model what you want by showing it a few examples in your prompt. The model learns the pattern and applies it to new inputs.</p>
+        <div class="visual visual-fewshot">
+          <div class="fewshot-examples">
+            <div class="example">
+              <span class="ex-in">happy → </span>
+              <span class="ex-out">sad</span>
+            </div>
+            <div class="example">
+              <span class="ex-in">hot → </span>
+              <span class="ex-out">cold</span>
+            </div>
+            <div class="example">
+              <span class="ex-in">fast → </span>
+              <span class="ex-out learned">slow</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Instead of explaining rules, you show examples. The model figures out you want opposites.</p>
+      </article>
+
+      <!-- Zero-shot -->
+      <article class="term" id="zero-shot">
+        <h2>Zero-shot</h2>
+        <p class="definition">Asking a model to do a task without giving any examples. The model relies entirely on its pre-trained knowledge to understand and complete the task.</p>
+        <div class="visual visual-zeroshot">
+          <div class="zeroshot-demo">
+            <div class="instruction">"Classify this review as positive or negative:"</div>
+            <div class="input-text">"The food was amazing!"</div>
+            <div class="output-text">→ Positive</div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Modern LLMs are good at zero-shot tasks because they've seen similar patterns during training.</p>
+      </article>
+
+      <!-- Multimodal -->
+      <article class="term" id="multimodal">
+        <h2>Multimodal</h2>
+        <p class="definition">AI that can understand and work with multiple types of input: text, images, audio, video, or any combination of these.</p>
+        <div class="visual visual-multimodal">
+          <div class="modalities">
+            <span class="modality">📝 Text</span>
+            <span class="modality">🖼️ Image</span>
+            <span class="modality">🎵 Audio</span>
+            <span class="modality">🎬 Video</span>
+          </div>
+          <div class="arrow-down">↓</div>
+          <div class="unified-model">One Model</div>
+        </div>
+        <p class="context"><strong>In context:</strong> You can show an image and ask questions about it. The model "sees" and understands both text and visuals.</p>
+      </article>
+
+      <!-- Diffusion -->
+      <article class="term" id="diffusion">
+        <h2>Diffusion</h2>
+        <p class="definition">A technique used by image generators. It starts with random noise and gradually removes it step by step, guided by your text prompt, until a clear image emerges.</p>
+        <div class="visual visual-diffusion">
+          <div class="diffusion-steps">
+            <div class="diff-step noise">▓▓▓</div>
+            <div class="diff-arrow">→</div>
+            <div class="diff-step partial">░▒▓</div>
+            <div class="diff-arrow">→</div>
+            <div class="diff-step clear">🖼️</div>
+          </div>
+          <div class="diffusion-labels">
+            <span>Noise</span>
+            <span>Denoising...</span>
+            <span>Image</span>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> DALL-E, Midjourney, and Stable Diffusion all use this technique to generate images from text.</p>
+      </article>
+
+      <!-- Vector Database -->
+      <article class="term" id="vector-database">
+        <h2>Vector Database</h2>
+        <p class="definition">A database designed to store and search embeddings (numerical representations of data). It finds similar items by measuring distance between vectors.</p>
+        <div class="visual visual-vectordb">
+          <div class="vectordb-demo">
+            <div class="query-vector">Query: [0.2, 0.8, 0.5]</div>
+            <div class="stored-vectors">
+              <span class="vector match">[0.2, 0.7, 0.6]</span>
+              <span class="vector">[0.9, 0.1, 0.3]</span>
+              <span class="vector">[0.5, 0.5, 0.5]</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Powers semantic search and RAG systems. When you search "happy dog photos", it finds images with similar meaning, not just matching words.</p>
+      </article>
+
+      <!-- Semantic Search -->
+      <article class="term" id="semantic-search">
+        <h2>Semantic Search</h2>
+        <p class="definition">Search that understands meaning, not just keywords. It finds results that are conceptually similar to your query, even if they use different words.</p>
+        <div class="visual visual-semantic">
+          <div class="search-comparison">
+            <div class="keyword-search">
+              <span class="search-type">Keyword</span>
+              <span class="search-query">"car repair"</span>
+              <span class="search-result">❌ "auto mechanic"</span>
+            </div>
+            <div class="semantic-search">
+              <span class="search-type">Semantic</span>
+              <span class="search-query">"car repair"</span>
+              <span class="search-result">✓ "auto mechanic"</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Searching for "how to fix a broken heart" returns emotional advice, not cardiology articles.</p>
+      </article>
+
+      <!-- GPU -->
+      <article class="term" id="gpu">
+        <h2>GPU</h2>
+        <p class="definition">Graphics Processing Unit. Originally designed for rendering graphics, GPUs excel at the parallel math operations that AI models need, making them essential for training and running AI.</p>
+        <div class="visual visual-gpu">
+          <div class="gpu-comparison">
+            <div class="cpu-side">
+              <span class="chip-label">CPU</span>
+              <div class="cores">
+                <span class="core big"></span>
+                <span class="core big"></span>
+                <span class="core big"></span>
+                <span class="core big"></span>
+              </div>
+              <span class="core-label">Few powerful cores</span>
+            </div>
+            <div class="gpu-side">
+              <span class="chip-label">GPU</span>
+              <div class="cores">
+                <span class="core"></span><span class="core"></span><span class="core"></span><span class="core"></span>
+                <span class="core"></span><span class="core"></span><span class="core"></span><span class="core"></span>
+                <span class="core"></span><span class="core"></span><span class="core"></span><span class="core"></span>
+              </div>
+              <span class="core-label">Many small cores</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> AI training requires massive parallel computation. A single GPU can do thousands of calculations simultaneously.</p>
+      </article>
+
+      <!-- Quantization -->
+      <article class="term" id="quantization">
+        <h2>Quantization</h2>
+        <p class="definition">Compressing a model by reducing the precision of its numbers. Instead of using 32-bit numbers, it might use 8-bit or 4-bit, making the model smaller and faster with minimal quality loss.</p>
+        <div class="visual visual-quantization">
+          <div class="quant-comparison">
+            <div class="quant-before">
+              <span class="quant-label">32-bit</span>
+              <span class="quant-num">0.7823456789</span>
+              <span class="quant-size">Large</span>
+            </div>
+            <div class="quant-arrow">→</div>
+            <div class="quant-after">
+              <span class="quant-label">4-bit</span>
+              <span class="quant-num">0.78</span>
+              <span class="quant-size">8x smaller</span>
+            </div>
+          </div>
+        </div>
+        <p class="context"><strong>In context:</strong> Lets you run large models on smaller devices. A 70B model quantized to 4-bit can run on a laptop.</p>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>Inspired by <a href="https://ibelick.com/ai-glossary" target="_blank">ibelick.com/ai-glossary</a></p>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme or use system preference
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+
+    // Smooth scroll for TOC links
+    document.querySelectorAll('.toc a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
