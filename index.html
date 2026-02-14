@@ -13,6 +13,13 @@
 <body>
   <div class="container">
     <header class="header">
+      <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
       <h1>AI Glossary</h1>
       <p class="subtitle">Simple explanations of AI concepts for everyone</p>
       <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -33,43 +40,79 @@
       </button>
     </header>
 
-    <nav class="toc">
-      <h2>Contents</h2>
-      <ul>
-        <li><a href="#token">Token</a></li>
-        <li><a href="#tokenization">Tokenization</a></li>
-        <li><a href="#embedding">Embedding</a></li>
-        <li><a href="#context-window">Context Window</a></li>
-        <li><a href="#latent-space">Latent Space</a></li>
-        <li><a href="#neural-network">Neural Network</a></li>
-        <li><a href="#parameter">Parameter</a></li>
-        <li><a href="#model">Model</a></li>
-        <li><a href="#transformer">Transformer</a></li>
-        <li><a href="#attention">Attention</a></li>
-        <li><a href="#pre-training">Pre-training</a></li>
-        <li><a href="#fine-tuning">Fine-tuning</a></li>
-        <li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
-        <li><a href="#chain-of-thought">Chain of Thought</a></li>
-        <li><a href="#inference">Inference</a></li>
-        <li><a href="#rag">RAG</a></li>
-        <li><a href="#agent">Agent</a></li>
-        <li><a href="#workflow">Workflow</a></li>
-        <li><a href="#llm">LLM</a></li>
-        <li><a href="#prompt">Prompt</a></li>
-        <li><a href="#hallucination">Hallucination</a></li>
-        <li><a href="#temperature">Temperature</a></li>
-        <li><a href="#few-shot-learning">Few-shot Learning</a></li>
-        <li><a href="#zero-shot">Zero-shot</a></li>
-        <li><a href="#multimodal">Multimodal</a></li>
-        <li><a href="#diffusion">Diffusion</a></li>
-        <li><a href="#vector-database">Vector Database</a></li>
-        <li><a href="#semantic-search">Semantic Search</a></li>
-        <li><a href="#gpu">GPU</a></li>
-        <li><a href="#quantization">Quantization</a></li>
-      </ul>
-    </nav>
+    <div class="layout">
+      <div class="sidebar-backdrop" onclick="toggleSidebar()"></div>
+      <aside class="sidebar">
+        <nav class="toc">
+          <div class="toc-group">
+            <h3 class="toc-heading">Text & Tokens</h3>
+            <ul>
+              <li><a href="#token">Token</a></li>
+              <li><a href="#tokenization">Tokenization</a></li>
+              <li><a href="#embedding">Embedding</a></li>
+              <li><a href="#context-window">Context Window</a></li>
+              <li><a href="#latent-space">Latent Space</a></li>
+            </ul>
+          </div>
+          <div class="toc-group">
+            <h3 class="toc-heading">Architecture</h3>
+            <ul>
+              <li><a href="#neural-network">Neural Network</a></li>
+              <li><a href="#parameter">Parameter</a></li>
+              <li><a href="#model">Model</a></li>
+              <li><a href="#llm">LLM</a></li>
+              <li><a href="#transformer">Transformer</a></li>
+              <li><a href="#attention">Attention</a></li>
+            </ul>
+          </div>
+          <div class="toc-group">
+            <h3 class="toc-heading">Training</h3>
+            <ul>
+              <li><a href="#pre-training">Pre-training</a></li>
+              <li><a href="#fine-tuning">Fine-tuning</a></li>
+              <li><a href="#reinforcement-learning">Reinforcement Learning</a></li>
+            </ul>
+          </div>
+          <div class="toc-group">
+            <h3 class="toc-heading">Prompting & Output</h3>
+            <ul>
+              <li><a href="#prompt">Prompt</a></li>
+              <li><a href="#inference">Inference</a></li>
+              <li><a href="#chain-of-thought">Chain of Thought</a></li>
+              <li><a href="#temperature">Temperature</a></li>
+              <li><a href="#few-shot-learning">Few-shot Learning</a></li>
+              <li><a href="#zero-shot">Zero-shot</a></li>
+              <li><a href="#hallucination">Hallucination</a></li>
+            </ul>
+          </div>
+          <div class="toc-group">
+            <h3 class="toc-heading">Systems</h3>
+            <ul>
+              <li><a href="#rag">RAG</a></li>
+              <li><a href="#agent">Agent</a></li>
+              <li><a href="#workflow">Workflow</a></li>
+            </ul>
+          </div>
+          <div class="toc-group">
+            <h3 class="toc-heading">Data & Media</h3>
+            <ul>
+              <li><a href="#multimodal">Multimodal</a></li>
+              <li><a href="#diffusion">Diffusion</a></li>
+              <li><a href="#vector-database">Vector Database</a></li>
+              <li><a href="#semantic-search">Semantic Search</a></li>
+            </ul>
+          </div>
+          <div class="toc-group">
+            <h3 class="toc-heading">Hardware</h3>
+            <ul>
+              <li><a href="#gpu">GPU</a></li>
+              <li><a href="#quantization">Quantization</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
 
-    <main class="glossary">
+      <main class="glossary">
       <!-- Token -->
       <article class="term" id="token">
         <h2>Token</h2>
@@ -473,8 +516,6 @@
         <p class="context"><strong>In context:</strong> ChatGPT, Claude, and Llama are all LLMs. They power most AI chat applications today.</p>
       </article>
 
-      <!-- NEW TERMS START HERE -->
-
       <!-- Prompt -->
       <article class="term" id="prompt">
         <h2>Prompt</h2>
@@ -701,6 +742,7 @@
         <p class="context"><strong>In context:</strong> Lets you run large models on smaller devices. A 70B model quantized to 4-bit can run on a laptop.</p>
       </article>
     </main>
+    </div>
 
     <footer class="footer">
       <p>Inspired by <a href="https://ibelick.com/ai-glossary" target="_blank">ibelick.com/ai-glossary</a></p>
@@ -717,6 +759,11 @@
       localStorage.setItem('theme', newTheme);
     }
 
+    // Sidebar toggle (mobile)
+    function toggleSidebar() {
+      document.body.classList.toggle('sidebar-open');
+    }
+
     // Load saved theme or use system preference
     (function() {
       const saved = localStorage.getItem('theme');
@@ -727,14 +774,31 @@
       }
     })();
 
-    // Smooth scroll for TOC links
+    // Smooth scroll for TOC links + close sidebar on mobile
     document.querySelectorAll('.toc a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
         target.scrollIntoView({ behavior: 'smooth' });
+        document.body.classList.remove('sidebar-open');
       });
     });
+
+    // Highlight active TOC link on scroll
+    const tocLinks = document.querySelectorAll('.toc a');
+    const articles = document.querySelectorAll('.term');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(link => link.classList.remove('active'));
+          const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+
+    articles.forEach(article => observer.observe(article));
   </script>
 </body>
 </html>
